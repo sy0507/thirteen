@@ -20,6 +20,7 @@ public class Card {
     else if (s.charAt(0) == '&')
       type = 1;
 
+
     switch (s.charAt(1)){
       case '2':
         rank = 1;
