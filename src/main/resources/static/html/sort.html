@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>排行榜</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../css/sort.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="base" class="">
+      <!-- Unnamed (Menu) -->
+      <div id="u63" class="ax_default">
+        <!-- Unnamed (Table) -->
+        
+
+          <!-- Unnamed (Menu Item) -->
+          <div id="u65" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+            <div id="u65_text" class="text ">
+              <p><span>当前对战</span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (Menu Item) -->
+          <div id="u66" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+            <div id="u66_text" class="text ">
+              <p><span>往期对战</span></p>
+            </div>
+          </div>
+
+          <!-- Unnamed (Menu Item) -->
+          <div id="u66u" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+              <div id="u66u_text" class="text ">
+                <p><span>查询玩家</span></p>
+              </div>
+          </div>          
+
+          <!-- Unnamed (Menu Item) -->
+          <div id="u67" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+            <div id="u67_text" class="text ">
+              <p><span>返回主菜单</span></p>
+            </div>
+          </div>
+        </div>
+
+      <!-- Unnamed (SVG) -->
+      <!-- <div id="u59" class="ax_default image">
+        <img id="u59_img" class="img " src="./image/back2.png"/>
+      </div>
+
+      <!-- Unnamed (Image) -->
+      <!-- <div id="u60" class="ax_default image">
+        <img id="u60_img" class="img " src="./image/back3.png"/>
+      </div> --> -->
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u61" class="ax_default label">
+        <div id="u61_text" class="text ">
+          <p><span>对战排行榜</span></p>
+        </div>
+      </div>
+
+
+      <!-- Unnamed (List Box) -->
+      <div id="u62" class="ax_default list_box">
+        <table class="fixed_header">
+          <thead>
+            <tr>
+              <th>玩家ID</th>
+              <th id="player_id">玩家名</th>
+              <th>分数</th>
+            </tr>
+          </thead>
+          <tbody id="table">
+          </tbody>
+        </table>
+      </div>
+
+
+    </div> 
+    
+    <script>
+
+      window.onload=function ()
+      {
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        //xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+        var JsonObject = JSON.parse(this.responseText);
+        add(JsonObject);
+        }
+        });
+
+        xhr.open("GET", "https://api.shisanshui.rtxux.xyz/rank");
+
+        xhr.send(data);
+      }
+
+      function SignIn(IdName){
+        if(IdName == "u65")
+        {
+          window.location.href='current.html';
+        }
+        if(IdName == "u66")
+        {
+          window.location.href='result.html';
+        }
+        if(IdName == "u66u")
+        {
+          window.location.href='player.html';
+        }
+        if(IdName == "u67")
+        {
+          window.location.href='menu.html';
+        }
+      }
+
+      function add(JsonObj)
+      {
+        var tab=document.getElementById("table");
+        for(var i = 0;i<JsonObj.length;i++)
+        {
+          var note=document.createElement("tr");
+          var note0=document.createElement("td");
+          note0.innerHTML=JsonObj[i].player_id;
+          var note1=document.createElement("td");
+          note1.innerHTML=JsonObj[i].name;
+          var note2=document.createElement("td");
+          note2.innerHTML=JsonObj[i].score;
+          note.appendChild(note0);
+          note.appendChild(note1);
+          note.appendChild(note2);
+          tab.appendChild(note);
+        }
+      }
+    
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>十三水登录</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/welcome.css">
+</head>
+<body>
+        <div id="base" class="">
+
+                <!-- Unnamed (Image) -->
+             
+          
+                <!-- Unnamed (Rectangle) -->
+                <div id="u1" class="ax_default box_1">
+                  <div id="u1_div" class=""></div>
+                </div>
+          
+                <!-- 账号 (Text Field) -->
+                <div id="u5" class="ax_default text_field" data-label="账号" >
+                  <input id="u5_input" type="text" value="" placeholder="请输入账号"/>
+                </div>
+          
+                <!-- 密码 (Text Field) -->
+                <div id="u6" class="ax_default text_field" data-label="密码" >
+                  <input id="u6_input" type="password" value="" placeholder="请输入密码"/>
+                </div>
+          
+                <!-- Unnamed (Rectangle) -->
+                <div id="u2" class="ax_default text_field" data-label="登录注册" >
+                  <input id="u2_text"  value="登录" type="submit" />
+                  <input id="u2u_text"  value="注册" type="submit" />
+                </div>
+          
+                <!-- Unnamed (Image) -->
+              </div>
+</body>
+<script>
+         var username=document.getElementById("u5_input");
+    var password=document.getElementById("u6_input");
+    document.getElementById("u2_text").onclick = function(){
+      var data = JSON.stringify({
+          "username": username.value,
+          "password": password.value
+      });
+
+      var xhr = new XMLHttpRequest();
+      //xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+      console.log(this.responseText);
+      var JsonObj = JSON.parse(this.responseText);
+      if(JsonObj.status==0)
+      {
+        document.cookie = JsonObj.data.token;
+        valid();
+      }
+      }
+      });
+
+      xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/login");
+      xhr.setRequestHeader("content-type", "application/json");
+
+      xhr.send(data);
+    }
+
+    document.getElementById("u2u_text").onclick = function(){
+      var data = JSON.stringify({
+        "username": username.value,
+        "password": password.value
+      });
+
+      var xhr = new XMLHttpRequest();
+      //xhr.withCredentials = true;
+      xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+        
+        var JsonObj = JSON.parse(this.responseText);
+        if(JsonObj.status==1001) alert("用户名已被使用");
+        if(JsonObj.status==1002) alert("学号已绑定");
+        if(JsonObj.status==0) alert("注册成功，请登录");
+        
+      }
+      });
+
+      xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/register");
+      xhr.setRequestHeader("content-type", "application/json");
+      xhr.send(data);
+    }
+
+    function valid(){
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        //xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+        
+        var JsonObject = JSON.parse(this.responseText);
+        if(JsonObject.status==0) window.location.href='menu.html';
+        if(JsonObject.status==1003) alert("教务处认证失败");
+        if(JsonObject.status==1004) alert("Token过期");
+        
+        }
+        });
+
+        xhr.open("GET", "https://api.shisanshui.rtxux.xyz/auth/validate");
+        var token = document.cookie.split(";")[0];
+        xhr.setRequestHeader("x-auth-token",token);
+        xhr.send(data);
+    }
+    </script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>菜单</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+<body>
+        <div id="base" class="">
+
+                <!-- Unnamed (SVG) -->
+                <div id="u9" class="ax_default image">
+                
+                </div>
+                <div id="id"><p class="tip">用户id:</p><p id="idNumber"></p></div>
+                <!-- Unnamed (Menu) -->
+                <div id="u10" class="ax_default">
+                  <!-- Unnamed (Table) -->
+          
+          
+                    <!-- Unnamed (Menu Item) -->
+                    <div id="u12" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+                      <div id="u12_text" class="text ">
+                        <p><span>当前对战</span></p>
+                      </div>
+                    </div>
+          
+                    <!-- Unnamed (Menu Item) -->
+                    <div id="u13" class="ax_defaultMenu_item" onclick="SignIn(this.id)"">
+                      <div id="u13_text" class="text ">
+                        <p><span>往期对战</span></p>
+                      </div>
+                    </div>
+          
+                    <!-- Unnamed (Menu Item) -->
+                    <div id="u13u" class="ax_defaultMenu_item" onclick="SignIn(this.id)"">
+                        <div id="u13u_text" class="text ">
+                          <p><span>查询玩家</span></p>
+                        </div>
+                    </div>
+          
+                    <!-- Unnamed (Menu Item) -->
+                    <div id="u14" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+                      <div id="u14_text" class="text ">
+                        <p><span>排行榜</span></p>
+                      </div>
+                    </div>
+          
+                    <!-- Unnamed (Menu Item) -->
+                    <div id="u15" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+                      <div id="u15_text" class="text ">
+                        <p><span>退出登录</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+    
+</body>
+<script>
+    
+        function SignIn(IdName){
+          if(IdName == "u12")
+          {
+            window.location.href='current.html';
+          }
+          if(IdName == "u13")
+          {
+            window.location.href='result.html';
+            
+          }
+          if(IdName == "u13u")
+          {
+            window.location.href='player.html';
+          }
+          if(IdName == "u14")
+          {
+            window.location.href='sort.html';
+          }
+          if(IdName == "u15")
+          {
+            var data = null;
+            var xhr = new XMLHttpRequest();
+            //xhr.withCredentials = true;
+    
+            xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+            console.log(this.responseText);
+            var JsonObj = JSON.parse(this.responseText);
+            if(JsonObj.status==0) window.location.href='enter.html';  
+            }
+            });
+    
+            xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/logout");
+            var token = document.cookie.split(";")[0];
+            xhr.setRequestHeader("x-auth-token",token);
+    
+            xhr.send(data);
+          
+          } 
+        }
+        var id=document.getElementById("idNumber");
+    
+        window.onload=function(){
+            var data = null;
+    
+            var xhr = new XMLHttpRequest();
+            //xhr.withCredentials = true;
+    
+            xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+            console.log(this.responseText);
+            var JsonObject = JSON.parse(this.responseText);
+            if(JsonObject.status==0) id.innerHTML=JsonObject.data.user_id;
+            if(JsonObject.status==1004) alert("Token过期");
+            }
+            });
+    
+            xhr.open("GET", "https://api.shisanshui.rtxux.xyz/auth/validate");
+            var token = document.cookie.split(";")[0];
+            xhr.setRequestHeader("x-auth-token",token);
+            xhr.send(data);
+        }
+        
+      </script>
+</html>

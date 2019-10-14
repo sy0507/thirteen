@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>当前对战状态</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link href="../css/current.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="base" class="">
+
+  <!-- Unnamed (SVG) -->
+  <div id="u16" class="ax_default image">
+    <img id="u16_img" class="img " src="./image/back2.png"/>
+  </div>
+
+  <!-- Unnamed (Group) -->
+  <div id="u19" class="ax_default" data-left="53" data-top="275" data-width="75" data-height="89">
+
+    <!-- Unnamed (Horizontal Line) -->
+    <div id="u21" class="ax_default line">
+      <img id="u21_img" class="img " src="https://d1icd6shlvmxi6.cloudfront.net/gsc/2H9TOX/46/85/24/468524e7ad324dbea46000b470016841/images/显示当前对战状态/u21.png?token=28286d1104808c5f29d484f97e9c3a84668062d18b96aaf91377bdfed1abfd11"/>
+    </div>
+
+    <!-- Unnamed (Menu) -->
+    <div id="u37" class="ax_default">
+      <!-- Unnamed (Table) -->
+      <!-- Unnamed (Menu Item) -->
+      <div id="u39" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+        <div id="u39_text" class="text ">
+          <p><span>往期对战</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Menu Item) -->
+      <div id="u39u" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+        <div id="u39u_text" class="text ">
+          <p><span>查询玩家</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Menu Item) -->
+      <div id="u40" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+        <div id="u40_text" class="text ">
+          <p><span>排行榜</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Menu Item) -->
+      <div id="u41" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
+        <div id="u41_text" class="text ">
+          <p><span>返回主菜单</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="id"><p class="tip">战局id:</p><p id="idNumber"></p></div>
+    <div id="start"><p class="tip">开局</p></div>
+    <div id="action"><p class="tip">出牌</p></div>
+
+    <div id="before1"><img id="before1img"></div>
+    <div id="before2"><img id="before2img"></div>
+    <div id="before3"><img id="before3img"></div>
+    <div id="before"><p class="tip">前墩</p></div>
+    <div id="middle1"><img id="middle1img"></div>
+    <div id="middle2"><img id="middle2img"></div>
+    <div id="middle3"><img id="middle3img"></div>
+    <div id="middle4"><img id="middle4img"></div>
+    <div id="middle5"><img id="middle5img"></div>
+    <div id="middle"><p class="tip">中墩</p></div>
+    <div id="after1"><img id="after1img"></div>
+    <div id="after2"><img id="after2img"></div>
+    <div id="after3"><img id="after3img"></div>
+    <div id="after4"><img id="after4img"></div>
+    <div id="after5"><img id="after5img"></div>
+    <div id="after"><p class="tip">后墩</p></div>
+    <div id="card">
+      <div class="c"><img id="card1"></div>
+      <div class="c"><img id="card2"></div>
+      <div class="c"><img id="card3"></div>
+      <div class="c"><img id="card4"></div>
+      <div class="c"><img id="card5"></div>
+      <div class="c"><img id="card6"></div>
+      <div class="c"><img id="card7"></div>
+      <div class="c"><img id="card8"></div>
+      <div class="c"><img id="card9"></div>
+      <div class="c"><img id="card10"></div>
+      <div class="c"><img id="card11"></div>
+      <div class="c"><img id="card12"></div>
+      <div class="c"><img id="card13"></div>
+    </div>
+
+  </div>
+
+  <script>
+
+    function SignIn(IdName){
+      if(IdName == "u39")
+      {
+        window.location.href='result.html';
+      }
+      if(IdName == "u39u")
+      {
+        window.location.href='player.html';
+      }
+      if(IdName == "u40")
+      {
+        window.location.href='sort.html';
+      }
+      if(IdName == "u41")
+      {
+        window.location.href='menu.html';
+      }
+    }
+    var card;
+    var id=document.getElementById("idNumber");
+
+    document.getElementById("start").onclick=function(){
+      var data = null;
+      var xhr = new XMLHttpRequest();
+      //xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+          var JsonObj = JSON.parse(this.responseText);
+          if(JsonObj.status==1004) alert("Token过期");
+          if(JsonObj.status==2001) alert("未结束战局过多");
+          if(JsonObj.status==0)
+          {
+            id.innerHTML=JsonObj.data.id;
+            card=JsonObj.data.card;
+            showStart(card);
+          }
+        }
+      });
+
+      xhr.open("POST", "https://api.shisanshui.rtxux.xyz/game/open");
+      var token = document.cookie.split(";")[0];
+      xhr.setRequestHeader("x-auth-token",token);
+
+      xhr.send(data);
+    }
+
+    document.getElementById("action").onclick=function(){
+      var data = JSON.stringify({
+        "id":id.innerHTML,
+        "card": card
+      });
+      var xhr = new XMLHttpRequest();
+      //xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+          var JsonObj = JSON.parse(this.responseText);
+          showAction(JsonObj.card);
+          submit(JsonObj.card);
+        }
+      });
+      xhr.open("POST", "http://47.101.140.66:80/handle/hello2");
+      xhr.setRequestHeader("content-type", "application/json");
+
+      xhr.send(data);
+    }
+    function submit(carded){
+      var data = JSON.stringify({
+        "id": id.innerHTML,
+        "card": carded
+      });
+      var xhr = new XMLHttpRequest();
+      //xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+          var JsonObj = JSON.parse(this.responseText);
+          if(JsonObj.status==1004) alert("Token过期");
+          if(JsonObj.status==2002) alert("出千！！！");
+          if(JsonObj.status==2003) alert("不合法墩牌");
+          if(JsonObj.status==0) alert(JsonObj.data.msg);
+        }
+      });
+
+      xhr.open("POST", "https://api.shisanshui.rtxux.xyz/game/submit");
+      var token = document.cookie.split(";")[0];
+      xhr.setRequestHeader("x-auth-token",token);
+      xhr.setRequestHeader("content-type", "application/json");
+
+      xhr.send(data);
+    }
+
+    function showStart(Card){
+      var cardSplit = Card.split(" ");
+      for(var i=0;i<13;i++)
+      {
+        var s=document.getElementById("card"+String(i+1));
+        match(s,cardSplit[i]);
+      }
+    }
+
+    function showAction(as){
+      for(var i=0;i<3;i++)
+      {
+        var cardSplit = as[i].split(" ");
+        if(i==0)
+        {
+          for(var j=0;j<3;j++)
+          {
+            var s=document.getElementById("before"+String(j+1)+"img");
+            match(s,cardSplit[j]);
+          }
+        }
+        else if(i==1)
+        {
+          for(var j=0;j<5;j++)
+          {
+            var s=document.getElementById("middle"+String(j+1)+"img");
+            match(s,cardSplit[j]);
+          }
+        }
+        else
+        {
+          for(var j=0;j<5;j++)
+          {
+            var s=document.getElementById("after"+String(j+1)+"img");
+            match(s,cardSplit[j]);
+          }
+        }
+      }
+    }
+
+    function match(p,cardSplit){
+      switch(cardSplit){
+        case "#2":p.src="../src/puke/-2.png";break;
+        case "#3":p.src="../src/puke/-3.png";break;
+        case "#4":p.src="../src/puke/-4.png";break;
+        case "#5":p.src="../src/puke/-5.png";break;
+        case "#6":p.src="../src/puke/-6.png";break;
+        case "#7":p.src="../src/puke/-7.png";break;
+        case "#8":p.src="../src/puke/-8.png";break;
+        case "#9":p.src="../src/puke/-9.png";break;
+        case "#10":p.src="../src/puke/-10.png";break;
+        case "#J":p.src="../src/puke/-j.png";break;
+        case "#Q":p.src="../src/puke/-q.png";break;
+        case "#K":p.src="../src/puke/-k.png";break;
+        case "#A":p.src="../src/puke/-1.png";break;
+        case "&2":p.src="../src/puke/&2.png";break;
+        case "&3":p.src="../src/puke/&3.png";break;
+        case "&4":p.src="../src/puke/&4.png";break;
+        case "&5":p.src="../src/puke/&5.png";break;
+        case "&6":p.src="../src/puke/&6.png";break;
+        case "&7":p.src="../src/puke/&7.png";break;
+        case "&8":p.src="../src/puke/&8.png";break;
+        case "&9":p.src="../src/puke/&9.png";break;
+        case "&10":p.src="../src/puke/&10.png";break;
+        case "&J":p.src="../src/puke/&j.png";break;
+        case "&Q":p.src="../src/puke/&q.png";break;
+        case "&K":p.src="../src/puke/&k.png";break;
+        case "&A":p.src="../src/puke/&1.png";break;
+        case "$2":p.src="../src/puke/$2.png";break;
+        case "$3":p.src="../src/puke/$3.png";break;
+        case "$4":p.src="../src/puke/$4.png";break;
+        case "$5":p.src="../src/puke/$5.png";break;
+        case "$6":p.src="../src/puke/$6.png";break;
+        case "$7":p.src="../src/puke/$7.png";break;
+        case "$8":p.src="../src/puke/$8.png";break;
+        case "$9":p.src="../src/puke/$9.png";break;
+        case "$10":p.src="../src/puke/$10.png";break;
+        case "$J":p.src="../src/puke/$j.png";break;
+        case "$Q":p.src="../src/puke/$q.png";break;
+        case "$K":p.src="../src/puke/$k.png";break;
+        case "$A":p.src="../src/puke/$1.png";break;
+        case "*2":p.src="../src/puke/+2.png";break;
+        case "*3":p.src="../src/puke/+3.png";break;
+        case "*4":p.src="../src/puke/+4.png";break;
+        case "*5":p.src="../src/puke/+5.png";break;
+        case "*6":p.src="../src/puke/+6.png";break;
+        case "*7":p.src="../src/puke/+7.png";break;
+        case "*8":p.src="../src/puke/+8.png";break;
+        case "*9":p.src="../src/puke/+9.png";break;
+        case "*10":p.src="../src/puke/+10.png";break;
+        case "*J":p.src="../src/puke/+j.png";break;
+        case "*Q":p.src="../src/puke/+q.png";break;
+        case "*K":p.src="../src/puke/+k.png";break;
+        case "*A":p.src="../src/puke/+1.png";break;
+      }
+    }
+
+
+  </script>
+</body>
+</html>
