@@ -30,6 +30,10 @@ public class template {
   public  String s(){
     return "html/sort.html";
   }
+  @GetMapping("/result.html")
+  public  String r(){
+    return "html/result.html";
+  }
 
 
 }
