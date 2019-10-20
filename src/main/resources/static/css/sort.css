@@ -1,17 +1,15 @@
-body {
-    /* margin:0px;
-    background-image:none;
-    position:static;
-    left:auto;
-    width:961px;
-    margin-left:0;
-    margin-right:0;
-    text-align:left; */
-    background: url("../src/background.png");
+body{
+    overflow: hidden;
+    background: url("../src/bg.png");
     background-repeat: no-repeat;
+    background-size: auto auto;
     background-attachment: fixed;
     background-position: center;
-  }
+    background-size:cover;
+    backgrond-attachment:fixed;
+    background-position:center;
+    
+}
   #base {
     position:absolute;
     z-index:0;
@@ -82,11 +80,11 @@ body {
   #u61 {
     border-width:0px;
     position:absolute;
-    left:360px;
-    top:105px;
+    left:523px;
+    top:109px;
     width:241px;
     height:55px;
-    font-size:48px;
+    font-size:40px;
   }
   #u61_text {
     border-width:0px;
@@ -99,15 +97,15 @@ body {
   #u62 {
     border-width:0px;
     position:absolute;
-    left:800px;
-    top:400px;
+    left:360px;
+    top:200px;
     width:600px;
     height:270px;
   }
   #u63 {
     border-width:0px;
     position:absolute;
-    left:0px;
+    left:800px;
     top:0px;
     width:100px;
     height:120px;
@@ -115,8 +113,8 @@ body {
   }
 
   #u65 {
-    border-bottom:black solid 1px;
-    background-color: white;
+   
+ 
     position:absolute;
     left:0px;
     top:0px;
@@ -133,11 +131,11 @@ body {
     word-wrap:break-word;
   }
   #u66 {
-    border-bottom:black solid 1px;
-    background-color: white;
+  
+
     position:absolute;
-    left:0px;
-    top:31px;
+    left:130px;
+    top:0px;
     width:100px;
     height:30px;
   }
@@ -151,11 +149,11 @@ body {
     word-wrap:break-word;
   }
   #u66u {
-    border-bottom:black solid 1px;
-    background-color: white;
+
+  
     position:absolute;
-    left:0px;
-    top:62px;
+    left:260px;
+    top:0px;
     width:100px;
     height:30px;
   }
@@ -170,10 +168,10 @@ body {
   }
   #u67 {
     border-width:0px;
-    background-color: white;
+
     position:absolute;
-    left:0px;
-    top:93px;
+    left:390px;
+    top:0px;
     width:100px;
     height:30px;
   }
@@ -187,8 +185,8 @@ body {
     word-wrap:break-word;
   }
   .ax_defaultMenu_item :hover{
-    background-color: #f7c27e;
-    color:white;
+  border-bottom:black solid 1px;
+    color:rgb(36,67,98);
     cursor: pointer;
 }
 
@@ -212,7 +210,7 @@ background-color: white;
 }
 
 .fixed_header thead {
- background: #f7c27e;
+ background:rgb(36,67,98);
  color:#fff;
 }
 

@@ -11,20 +11,13 @@
 <div id="base" class="">
 
   <!-- Unnamed (SVG) -->
-  <div id="u16" class="ax_default image">
+ <!--  <div id="u16" class="ax_default image">
     <img id="u16_img" class="img " src="./image/back2.png"/>
-  </div>
+  </div> -->
 
   <!-- Unnamed (Group) -->
-  <div id="u19" class="ax_default" data-left="53" data-top="275" data-width="75" data-height="89">
-
-    <!-- Unnamed (Horizontal Line) -->
-    <div id="u21" class="ax_default line">
-      <img id="u21_img" class="img " src="https://d1icd6shlvmxi6.cloudfront.net/gsc/2H9TOX/46/85/24/468524e7ad324dbea46000b470016841/images/显示当前对战状态/u21.png?token=28286d1104808c5f29d484f97e9c3a84668062d18b96aaf91377bdfed1abfd11"/>
-    </div>
-
-    <!-- Unnamed (Menu) -->
-    <div id="u37" class="ax_default">
+<!-- 顶部 -->
+  <div id="u37" class="ax_default">
       <!-- Unnamed (Table) -->
       <!-- Unnamed (Menu Item) -->
       <div id="u39" class="ax_defaultMenu_item" onclick="SignIn(this.id)">
@@ -54,6 +47,16 @@
         </div>
       </div>
     </div>
+<!-- 中间 -->
+  <div id="u19" class="ax_default" data-left="53" data-top="275" data-width="75" data-height="89">
+
+    <!-- Unnamed (Horizontal Line) -->
+    <div id="u21" class="ax_default line">
+      <img id="u21_img" class="img " src="https://d1icd6shlvmxi6.cloudfront.net/gsc/2H9TOX/46/85/24/468524e7ad324dbea46000b470016841/images/显示当前对战状态/u21.png?token=28286d1104808c5f29d484f97e9c3a84668062d18b96aaf91377bdfed1abfd11"/>
+    </div>
+
+    <!-- Unnamed (Menu) -->
+    
 
     <div id="id"><p class="tip">战局id:</p><p id="idNumber"></p></div>
     <div id="start"><p class="tip">开局</p></div>
@@ -191,6 +194,8 @@
       xhr.send(data);
     }
 
+
+
     function showStart(Card){
       var cardSplit = Card.split(" ");
       for(var i=0;i<13;i++)
@@ -288,6 +293,14 @@
       }
     }
 
+    // function cite(){
+    //   for(int var=1;i<2000;i++){
+    //     showStart(Card);
+    //     showAction(as);
+    //     match(p,cardSplit);
+    //   }
+
+   // }
 
   </script>
 </body>

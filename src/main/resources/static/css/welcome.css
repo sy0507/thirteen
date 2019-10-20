@@ -1,10 +1,16 @@
 body{
+    overflow: hidden;
     background: url("../src/background.png");
     background-repeat: no-repeat;
+    background-size: auto auto;
     background-attachment: fixed;
     background-position: center;
+    background-size:cover;
+    backgrond-attachment:fixed;
+    background-position:center;
     
 }
+
 #base {
     /* position:absolute;
     z-index:0; */
@@ -44,10 +50,8 @@ body{
     background:inherit;
     background-color:rgba(255, 255, 255, 1);
     box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(0, 0, 0, 1);
-    border-radius:0px;
+    border: 1px rgb(36,67,98) solid;
+    border-radius:5px;
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
     box-shadow:none;
@@ -73,13 +77,15 @@ body{
   #u2_text {
     border-width:0px;
     position:absolute;
-    margin-left:476px;
-    margin-top:120px;
+    margin-left:378px;
+    margin-top:80px;
     width:84px;
     height:25px;
     text-align: center;
     color:white;
-    background-color:rgba(0, 0, 0, 1);
+    background-color:rgb(36,67,98);
+    border-radius: 5PX;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
   }
   #u2_text:hover{
     background-color: #f7c27e;
@@ -89,13 +95,15 @@ body{
   #u2u_text {
     border-width:0px;
     position:absolute;
-    margin-left:570px;
-    margin-top:120px;
+    margin-left:485px;
+    margin-top:80px;
     width:84px;
     height:25px;
     text-align: center;
     color:white;
-    background-color:rgba(0, 0, 0, 1);
+    background-color:rgb(36,67,98);
+    border-radius: 5PX;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
   }
   #u2u_text:hover{
     background-color: #f7c27e;
@@ -112,24 +120,25 @@ body{
   }
   
   #u5 {
-    border:black solid 1px;
+  border: 1px rgb(36,67,98) solid;
     background-color: white;
     position:absolute;
      /* margin-top:400px;  */
-     margin-top: 400px;
-     margin-left: 900px;
+     margin-top: 350px;
+     margin-left: 800px;
     /* left:900px;
     top:400px; */
-    width:169px;
-    height:25px; 
+    width:189px;
+    height:35px; 
   }
   #u5_input {
     position:absolute;
     z-index:999;/*设置重叠的上下次序，值越大越在上方*/
+     border-radius:35px;
     left:3px;
     top:0px;
-    width:169px;
-    height:20px;
+    width:189px;
+    height:30px;
     background-color:transparent;
     font-family:'Arial Normal', 'Arial';
     font-weight:400;
@@ -140,16 +149,17 @@ body{
     text-align:left;
     border-color:transparent;
     outline-style:none;
+    padding-left: 35px;
   }
   
   #u6 {
-    border:black solid 1px;
+   border: 1px rgb(36,67,98) solid;
     background-color: white;
     position:absolute;
-    margin-left:900px;
-    margin-top:450px;
-    width:169px;
-    height:25px;
+    margin-left:800px;
+    margin-top:400px;
+    width:189px;
+    height:35px;
   }
   
   #u6_input {
@@ -157,8 +167,9 @@ body{
     z-index:999;/*设置重叠的上下次序，值越大越在上方*/
     left:3px;
     top:0px;
-    width:169px;
-    height:20px;
+     border-radius:15px;
+    width:189px;
+    height:30px;
     background-color:transparent;
     font-family:'Arial Normal', 'Arial';
     font-weight:400;
@@ -167,8 +178,11 @@ body{
     text-decoration:none;
     color:#000000;
     text-align:left;
+    border: 1px rgb(36,67,98) solid;
     border-color:transparent;
     outline-style:none;
+    padding-left: 35px;
+
   }
   
   #u7_img {
@@ -221,3 +235,28 @@ body{
     visibility:hidden;
     word-wrap:break-word;
   }
+  .icon01{
+    position: absolute;
+    left: 8px;
+    top:6px;
+    z-index: 199;
+    background-image: url("../src/zhanghao.png");
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+   /* background-position: 30px 0px;*/
+    width:40px;
+    height:40px;
+
+}
+.icon02{
+    position: absolute;
+    left: 8px;
+    top:6px;
+    z-index: 199;
+    background-image: url("../src/unlock.png");
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+   /* background-position: 30px 0px;*/
+    width:40px;
+    height:40px;
+}

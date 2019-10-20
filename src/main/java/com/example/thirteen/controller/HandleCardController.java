@@ -9,12 +9,11 @@ import org.springframework.web.context.request.async.WebAsyncTask;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @RestController
 @RequestMapping("/handle")
 public class HandleCardController {
-
-
   @ResponseBody
   @RequestMapping("/hello2")
   public String card2(@RequestBody String str){

@@ -1,8 +1,13 @@
 body{
-    background: url("../src/background.png");
+    overflow: hidden;
+    background: url("../src/bg.png");
     background-repeat: no-repeat;
+    background-size: auto auto;
     background-attachment: fixed;
     background-position: center;
+    background-size:cover;
+    backgrond-attachment:fixed;
+    background-position:center;
     
 }
 #base {
@@ -17,7 +22,7 @@ body{
     margin-block-end: 0px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    margin-top: 22px;
+    margin-top: 16px;
   }
   #u9_img {
     border-width:0px;
@@ -31,128 +36,134 @@ body{
     border-width:0px;
     position:absolute;
     left:0px;
-    top:0px;
-    width:961px;
+    top:-240px;
+    width:180px;
     height:541px;
   }
   #u10 {
     border-width:0px;
     position:absolute;
-    left:331px;
-    top:91px;
+    left:180px;
+    top:0px;
     width:300px;
     height:350px;
   }
+  /*#u12，#u12_text，*/
 
   #u12 {
-    border-bottom: black solid 1px;
+    border: 1px rgb(36,67,98) solid;
     position:absolute;
     left:0px;
     top:0px;
-    width:300px;
-    height:70px;
+    width:160px;
+    height:60px;
     font-size:20px;
-    background-color:white;
-    border-radius: 10%;
+   /* background-color:white;*/
+    border-radius: 20px;
   }
   #u12_text {
     border-width:0px;
     position:absolute;
     left:0px;
     top: 0px;
-    width: 300px;
-    height: 70px;
-    word-wrap:break-word;
+    width: 160px;
+    height: 60px;
+   /* word-wrap:break-word;*/
     text-align:center;
+
   }
   #u13 {
-    border-bottom: black solid 1px;
+     border: 1px rgb(36,67,98) solid;
     position:absolute;
-    left:0px;
-    top:71px;
-    width:300px;
-    height:70px;
+    left:200px;
+    top:0px;
+    width:160px;
+    height:60px;
     font-size:20px;
-    background-color: white;
-    border-radius: 10%;
+   
+    border-radius: 20px;
   }
   #u13_text {
     border-width:0px;
     position:absolute;
     left:0px;
     top: 0px;
-    width: 300px;
-    height: 70px;
+    width: 160px;
+    height: 60px;
     word-wrap:break-word;
     text-align:center;
   }
   #u13u {
-    border-bottom: black solid 1px;
+   border: 1px rgb(36,67,98) solid;
     position:absolute;
     left:0px;
-    top:142px;
-    width:300px;
-    height:70px;
+    top:100px;
+    width:160px;
+    height:60px;
     font-size:20px;
-    background-color: white;
+   border-radius: 20px;
   }
   #u13u_text {
     border-width:0px;
     position:absolute;
     left:0px;
     top: 0px;
-    width: 300px;
-    height: 70px;
+    width: 160px;
+    height: 60px;
     word-wrap:break-word;
     text-align:center;
   }
 
   #u14 {
-    border-bottom: black solid 1px;
-    background-color: white;
+ border: 1px rgb(36,67,98) solid;
+   
     position:absolute;
-    left:0px;
-    top:213px;
-    width:300px;
-    height:70px;
+    left:200px;
+    top:100px;
+    width:160px;
+    height:60px;
     font-size:20px;
-    border-radius: 10%;
+     border-radius: 20px;
   }
   #u14_text {
     border-width:0px;  
     position:absolute;
     left:0px;
     top: 0px;
-    width: 300px;
-    height: 70px;
+    width: 160px;
+    height: 60px;
     word-wrap:break-word;
     text-align:center;
   }
   #u15 {
-    border-width:0px;
+     border: 1px rgb(36,67,98) solid;
+    /*border-width:0px;*/
     position:absolute;
-    left:0px;
-    top:284px;
-    width:300px;
-    height:70px;
+    left:50px;
+    top:204px;
+    width:260px;
+    height:60px;
     font-size:20px;
-    background-color: white;
-    border-radius: 10%;
+
+    border-radius: 20px;
   }
   #u15_text {
     border-width:0px;
     position:absolute;
     left:0px;
     top: 0px;
-    width: 300px;
-    height: 70px;
+    width: 260px;
+    height: 60px;
     word-wrap:break-word;
     text-align:center;
   }
+  
   .ax_defaultMenu_item :hover{
-    background-color: #f7c27e;
+    background-color: rgb(36,67,98);
     color:white;
     cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
 }
 
 .tip{
@@ -161,21 +172,24 @@ body{
 
 }
 #id{
-  background-color:#f7c27e;
-  color:white;
-  font-size: 25px;
+  /*background-color:#f7c27e;*/
+  color:rgb(36,67,98);
+  font-size: 15px;
   border-radius: 10px;
   position:absolute;
-  left:150px;
-  top:30px;
-  width:100px;
+  left:120px;
+  top:-45px;
+  width:200px;
   height:80px;
   text-align:center;
+
 }
 #id:hover{
   cursor: pointer;
 }
 #idNumber {
   position:absolute;
-  top:18px;
+  top:-8px;
+  left:130px;
+  height:80px;
 }

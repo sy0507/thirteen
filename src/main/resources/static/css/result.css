@@ -1,14 +1,15 @@
-body {
-  background: url("../src/background.png");
-  margin:0px;
-  /* background-image:none; */
-  position:static;
-  left:auto;
-  width:961px;
-  margin-left:0;
-  margin-right:0;
-  text-align:left;
-  }
+body{
+    overflow: hidden;
+    background: url("../src/bg.png");
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;
+    backgrond-attachment:fixed;
+    background-position:center;
+    
+}
   #base {
     position:absolute;
     z-index:0;
@@ -75,11 +76,11 @@ body {
   #u44 {
     border-width:0px;
     position:absolute;
-    left:333px;
+    left:523px;
     top:109px;
     width:295px;
     height:62px;
-    font-size:48px;
+    font-size:40px;
   }
   #u44_text {
     border-width:0px;
@@ -100,9 +101,8 @@ body {
 
   #u46 {
     border-width:0px;
-    background-color: white;
     position:absolute;
-    left:0px;
+    left:800px;
     top:1px;
     width:100px;
     height:122px;
@@ -110,7 +110,7 @@ body {
 
 
   #u48 {
-    border-bottom:black solid 1px;
+ 
     position:absolute;
     left:0px;
     top:0px;
@@ -127,10 +127,10 @@ body {
     word-wrap:break-word;
   }
   #u49 {
-    border-bottom:black solid 1px;
+ 
     position:absolute;
-    left:0px;
-    top:31px;
+    left:130px;
+    top:0px;
     width:100px;
     height:30px;
   }
@@ -147,8 +147,8 @@ body {
   #u50 {
     border-width:1px;
     position:absolute;
-    left:0px;
-    top:93px;
+    left:260px;
+    top:0px;
     width:100px;
     height:30px;
   }
@@ -163,10 +163,10 @@ body {
   }
 
   #u50u {
-    border-bottom:black solid 1px;
+   
     position:absolute;
-    left:0px;
-    top:62px;
+    left:390px;
+    top:0px;
     width:100px;
     height:30px;
   }
@@ -181,35 +181,41 @@ body {
   }
 
   .ax_defaultMenu_item :hover{
-    background-color: #f7c27e;
-    color:white;
+     border-bottom:black solid 1px;
+    color:rgb(36,67,98);
     cursor: pointer;
 }
-
+/*输入框*/
   #getId{
     border-width:0px;
     top: 190px;
     left: 325px;
     position: absolute;
-    height:25px;
+    height:35px;
+    border-radius: 20px;
   }
   #getId_text{
     position: absolute;
     top: 0px; 
-    left: 0px;
+    left: 160px;
     width:250px;
     height:-webkit-fill-available;
     background-color:#FFFFFF;
+   border-radius: 10px;
+   padding-left: 15px;
+   border:1px rgb(36,67,98) solid;
   }
+  /*查询*/
   #getId_bt{
     border-width:0px;
     position: absolute;
     top: 0px;
-    left: 260px;
-    width:50px;
-    height:25px;
-    background-color:rgba(188, 35, 43, 1);
+    left: 450px;
+    width:70px;
+    height:35px;
+    background-color:rgb(36,67,98);
     color:white;
+    border-radius: 10px;
   }
   #getId_bt:hover{
     cursor: pointer;
@@ -219,22 +225,25 @@ body {
     width: 675px;
     table-layout: fixed;
     border-collapse: collapse;
+    margin-top: 40px;
+    margin-left: 20%;
   }
   
   #fixed_header2 tbody{
   display:block;
   width: 100%;
   overflow: auto;
-  height: 120px;
+  height: 220px;
   background-color: white;
   }
   
   #fixed_header2 thead tr {
    display: block;
+   border-bottom: 1px rgb(36,67,98) dashed;
   }
   
   #fixed_header2 thead {
-   background: #f7c27e;
+   background: rgb(36,67,98);
    color:#fff;
   }
   .player_id{
@@ -257,9 +266,11 @@ body {
   #fixed_header1{
     width: 440px;
     height:55px;
-    margin-left: 117.5px;
+    margin-left: 40%;
+    margin-top: 3%;
     table-layout: fixed;
     border-collapse: collapse;
+   
   }
   
   #fixed_header1 tbody{
@@ -267,14 +278,18 @@ body {
   width: 100%;
   height: 25px;
   background-color: white;
+ 
   }
   
   #fixed_header1 thead tr {
    display: block;
+  
   }
+
   
   #fixed_header1 thead {
-   background: #f7c27e;
+   background: rgb(36,67,98);
+
    color:#fff;
   }
   

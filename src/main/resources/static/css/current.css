@@ -1,13 +1,14 @@
-body {
-  background: url("../src/background.png");
-  margin:0px;
-  /* background-image:none; */
-  position:static;
-  left:auto;
-  width:961px;
-  margin-left:0;
-  margin-right:0;
-  text-align:left;
+body{
+    overflow: hidden;
+    background: url("../src/bg.png");
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;
+    backgrond-attachment:fixed;
+    background-position:center;
+    
 }
 #base {
   position:absolute;
@@ -47,8 +48,8 @@ body {
 #u19 {
   border-width:0px;
   position:absolute;
-  left:0px;
-  top:0px;
+  left:150px;
+  top:80px;
   width:0px;
   height:0px;
 }
@@ -78,20 +79,20 @@ body {
   visibility:hidden;
   word-wrap:break-word;
 }
-
+/*顶部*/
 #u37 {
   border-width:0px;
-  background-color: white;
   position:absolute;
-  left:0px;
+  left:800px;
   top:0px;
   width:100px;
   height:123px;
 }
 
 #u39 {
-  border-bottom:black solid 1px;
+  
   position:absolute;
+
   left:0px;
   top:0px;
   width:100px;
@@ -107,10 +108,10 @@ body {
   word-wrap:break-word;
 }
 #u39u {
-  border-bottom:black solid 1px;
+ 
   position:absolute;
-  left:0px;
-  top:31px;
+  left:130px;
+  top:0px;
   width:100px;
   height:30px;
 }
@@ -124,10 +125,10 @@ body {
   word-wrap:break-word;
 }
 #u40 {
-  border-bottom:black solid 1px;
+  
   position:absolute;
-  left:0px;
-  top:62px;
+  left:260px;
+  top:0px;
   width:100px;
   height:30px;
 }
@@ -143,8 +144,8 @@ body {
 #u41 {
   border-width:1px;
   position:absolute;
-  left:0px;
-  top:93px;
+  left:390px;
+  top:0px;
   width:100px;
   height:30px;
 }
@@ -158,13 +159,13 @@ body {
   word-wrap:break-word;
 }
 .ax_defaultMenu_item :hover{
-  background-color: #f7c27e;
-  color:white;
+  color: rgb(36,67,98);
+border-bottom:black solid 1px;
   cursor: pointer;
 }
 
 #before1{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:370px;
   top:30px;
@@ -172,7 +173,7 @@ body {
   height:108px;
 }
 #before2{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:448px;
   top:30px;
@@ -180,7 +181,7 @@ body {
   height:108px;
 }
 #before3{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:526px;
   top:30px;
@@ -188,7 +189,7 @@ body {
   height:108px;
 }
 #middle1{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:292px;
   top:150px;
@@ -196,7 +197,7 @@ body {
   height:108px;
 }
 #middle2{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:370px;
   top:150px;
@@ -204,7 +205,7 @@ body {
   height:108px;
 }
 #middle3{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:448px;
   top:150px;
@@ -212,7 +213,7 @@ body {
   height:108px;
 }
 #middle4{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:526px;
   top:150px;
@@ -220,7 +221,7 @@ body {
   height:108px;
 }
 #middle5{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:604px;
   top:150px;
@@ -228,7 +229,7 @@ body {
   height:108px;
 }
 #after1{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:292px;
   top:270px;
@@ -236,7 +237,7 @@ body {
   height:108px;
 }
 #after2{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:370px;
   top:270px;
@@ -244,7 +245,7 @@ body {
   height:108px;
 }
 #after3{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:448px;
   top:270px;
@@ -252,7 +253,7 @@ body {
   height:108px;
 }
 #after4{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:526px;
   top:270px;
@@ -260,7 +261,7 @@ body {
   height:108px;
 }
 #after5{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:604px;
   top:270px;
@@ -268,8 +269,8 @@ body {
   height:108px;
 }
 #before{
-  background-color:#f7c27e;
-  color:white;
+  border:1px rgb(36,67,98) solid;
+  color:rgb(36,67,98);
   text-align: center;
   border-radius: 10px;
   font-size: 25px;
@@ -280,8 +281,8 @@ body {
   height:50px;
 }
 #middle{
-  background-color:#f7c27e;
-  color:white;
+  border:1px rgb(36,67,98) solid;
+  color:rgb(36,67,98);
   text-align: center;
   border-radius: 10px;
   font-size: 25px;
@@ -292,8 +293,8 @@ body {
   height:50px;
 }
 #after{
-  background-color:#f7c27e;
-  color:white;
+ border:1px rgb(36,67,98) solid;
+  color:rgb(36,67,98);
   font-size: 25px;
   border-radius: 10px;
   position:absolute;
@@ -308,7 +309,7 @@ body {
 
 }
 #card{
-  border:#f7c27e solid 2px;
+  border:#ccb6d8 solid 2px;
   position:absolute;
   left:150px;
   top:430px;
@@ -324,36 +325,39 @@ body {
   width:50px;
   height:76px;
 }
+/*开局*/
 #start{
-  background-color:#f7c27e;
+  background-color:rgb(36,67,98);
   color:white;
   font-size: 25px;
-  border-radius: 50px;
+  border-radius: 20px;
   position:absolute;
   left:50px;
   top:180px;
-  width:70px;
+  width:90px;
   height:50px;
 }
+/*出牌*/
 #action{
-  background-color:#f7c27e;
+  background-color:rgb(36,67,98);
   color:white;
   font-size: 25px;
-  border-radius: 50px;
+  border-radius: 20px;
   position:absolute;
   left:50px;
   top:270px;
-  width:70px;
+  width:90px;
   height:50px;
 }
 #action:hover,#start:hover{
   cursor: pointer;
 }
+/*战局id*/
 #id{
-  background-color:#f7c27e;
-  color:white;
+ 
+  color:rgb(36,67,98);
   font-size: 25px;
-  border-radius: 10px;
+ 
   position:absolute;
   left:150px;
   top:30px;
